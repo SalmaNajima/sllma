@@ -7,155 +7,156 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+body { background: #f4f7fc; display: flex; }
 
-body {
-    background: #f4f7fc;
-    display: flex;
-}
-
-/* ================= SIDEBAR ================= */
-.sidebar {
-    width: 280px;
-    height: 100vh;
-    background: #2952cc;
-    position: fixed;
-    overflow-y: auto;
-    color: white;
-}
-
-.logo {
-    padding: 25px;
-    text-align: center;
-    border-bottom: 1px solid rgba(255,255,255,.2);
-}
-
+/* SIDEBAR */
+.sidebar { width: 280px; height: 100vh; background: #2952cc; position: fixed; overflow-y: auto; color: white; }
+.logo { padding: 25px; text-align: center; border-bottom: 1px solid rgba(255,255,255,.2); }
 .logo h2 { font-size: 24px; margin-bottom: 5px; }
 .logo p { font-size: 13px; opacity: .8; }
-
 .menu { padding: 15px; }
 .menu ul { list-style: none; }
 .menu ul li { margin-bottom: 8px; }
-.menu ul li a {
-    display: block;
-    padding: 12px 15px;
-    text-decoration: none;
-    color: white;
-    border-radius: 10px;
-    transition: .3s;
-}
-.menu ul li a:hover, .menu ul li a.active {
-    background: rgba(255,255,255,.2);
-}
+.menu ul li a { display: block; padding: 12px 15px; text-decoration: none; color: white; border-radius: 10px; transition: .3s; }
+.menu ul li a:hover, .menu ul li a.active { background: rgba(255,255,255,.2); }
 
-/* ================= MAIN ================= */
-.main {
-    margin-left: 280px;
-    width: calc(100% - 280px);
-}
-
-/* ================= TOPBAR ================= */
-.topbar {
-    background: white;
-    padding: 18px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,.08);
-}
+/* MAIN */
+.main { margin-left: 280px; width: calc(100% - 280px); }
+.topbar { background: white; padding: 18px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,.08); }
 .topbar h2 { color: #2952cc; font-size: 20px; }
 
-/* Tambahan Tombol Kembali Bergaya Sesuai Tema */
-.btn-back {
-    background: #6c757d;
-    color: white;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: 0.3s;
-}
-.btn-back:hover {
-    background: #5a6268;
-}
+.btn-back { background: #6c757d; color: white; padding: 8px 15px; border: none; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; }
+.btn-back:hover { background: #5a6268; }
 
-/* ================= CONTENT ================= */
+/* CONTENT */
 .content { padding: 25px; }
+.section-title { color: #2952cc; margin-bottom: 20px; font-size: 22px; border-bottom: 2px solid #2952cc; padding-bottom: 10px; display: inline-block; }
 
-.section-title {
-    color: #2952cc;
-    margin-bottom: 20px;
-    font-size: 22px;
-    border-bottom: 2px solid #2952cc;
-    padding-bottom: 10px;
-    display: inline-block;
+/* CARDS */
+.grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px; }
+.data-card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,.05); border-top: 4px solid #2952cc; }
+.data-card h3 { margin-bottom: 15px; color: #333; font-size: 18px; display: flex; align-items: center; gap: 10px; }
+.data-card h3 i { color: #2952cc; font-size: 24px; }
+.btn-group { display: flex; flex-direction: column; gap: 10px; }
+
+.btn { display: inline-flex; padding: 10px 15px; background: #f0f4ff; color: #2952cc; text-decoration: none; border-radius: 8px; font-weight: 500; transition: 0.3s; border: 1px solid #d6e0ff; align-items: center; gap: 10px; }
+.btn:hover { background: #2952cc; color: white; }
+.btn-excel { background: #e6f4ea; color: #137333; border-color: #ceead6; }
+.btn-excel:hover { background: #137333; color: white; }
+.btn-looker { background: #fef7e0; color: #b06000; border-color: #feefc3; }
+.btn-looker:hover { background: #b06000; color: white; }
+
+/* TABLE */
+.table-container { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,.05); }
+table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+table th, table td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #eee; }
+table th { background: #f8f9fa; color: #333; font-weight: 600; }
+table tbody tr:hover { background: #f4f7fc; }
+.badge { padding: 5px 10px; border-radius: 20px; font-size: 12px; font-weight: bold; background: #e6f4ea; color: #137333; }
+
+@media(max-width: 768px) {
+    .sidebar { width: 100%; height: auto; position: relative; }
+    .main { margin-left: 0; width: 100%; }
+    body { flex-direction: column; }
 }
+</style>
+</head>
+<body>
 
-/* ================= CARDS / LINKS ================= */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin-bottom: 30px;
+<div class="sidebar">
+    <div class="logo">
+        <h2>POKLAHSAR</h2>
+        <p>Sistem Informasi Kelompok</p>
+    </div>
+    <div class="menu">
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> Kembali ke Dashboard</a></li>
+            <li><a href="#" class="active"><i class="fas fa-boxes"></i> Inventaris & Data</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="main">
+    <div class="topbar">
+        <h2>Inventaris & Integrasi Data POKLAHSAR</h2>
+        <div>
+            <button onclick="kembaliKeAsal()" class="btn-back">
+                <i class="fas fa-arrow-left"></i> Kembali
+            </button>
+        </div>
+    </div>
+
+    <div class="content">
+        
+        <h2 class="section-title"><i class="fas fa-link"></i> Integrasi Data Formulir & Laporan</h2>
+        
+        <div class="grid-container">
+            <div class="data-card">
+                <h3><i class="fas fa-file-signature"></i> Data Pendaftaran</h3>
+                <p style="margin-bottom: 15px; font-size: 14px; color: #666;">Isi formulir pendaftaran atau cek rekapitulasi data pada spreadsheet.</p>
+                <div class="btn-group">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfWt8IzkXYqdrVEJFHJZkWP8tG1kLrlXOnwhVqUi9af02QESg/viewform?usp=header" target="_blank" class="btn"><i class="fab fa-google"></i> Buka Google Form</a>
+                    <a href="https://docs.google.com/spreadsheets/d/12o4gPnjdU7cYV3zDr0ou8nElTdGNU3SjFkqRjrqIPSQ/edit?usp=sharing" target="_blank" class="btn btn-excel"><i class="fas fa-table"></i> Buka Spreadsheet</a>
+                </div>
+            </div>
+
+            <div class="data-card">
+                <h3><i class="fas fa-star"></i> Survei Kepuasan</h3>
+                <p style="margin-bottom: 15px; font-size: 14px; color: #666;">Isi survei evaluasi sistem atau tinjau grafik kepuasan anggota.</p>
+                <div class="btn-group">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfcU1zAS3bDvbLlzkXFQ9D9_Fn0-Qz9hulklYZNTTIVbETo_Q/viewform?usp=header" target="_blank" class="btn"><i class="fab fa-google"></i> Isi Survei Kepuasan</a>
+                    <a href="https://docs.google.com/spreadsheets/d/1SXEjFN5TxASeD5mK9HdqEr1-ZXfuqK0HWGp3r_uKSC0/edit?usp=sharing" target="_blank" class="btn btn-excel"><i class="fas fa-table"></i> Lihat Data Kepuasan</a>
+                </div>
+            </div>
+
+            <div class="data-card">
+                <h3><i class="fas fa-chart-pie"></i> Visualisasi Dashboard</h3>
+                <p style="margin-bottom: 15px; font-size: 14px; color: #666;">Analisis interaktif Looker Studio dan unduhan berkas laporan.</p>
+                <div class="btn-group">
+                    <a href="https://datastudio.google.com/reporting/49e5a4d0-00f5-4c19-af50-808d96c68936" target="_blank" class="btn btn-looker"><i class="fas fa-chart-line"></i> Dashboard Inventaris</a>
+                    <a href="https://datastudio.google.com/reporting/8823ca8c-eaed-4e7f-a668-40db8e12e08a" target="_blank" class="btn btn-looker"><i class="fas fa-chart-line"></i> Dashboard Kepuasan</a>
+                    <a href="https://docs.google.com/spreadsheets/d/1MJtez_2hyEgFSUgoOuXE2iuheNd5MTnP/edit?usp=sharing&ouid=100706459363140641614&rtpof=true&sd=true" target="_blank" class="btn btn-excel"><i class="fas fa-file-excel"></i> Download Excel</a>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title"><i class="fas fa-boxes"></i> Daftar Inventaris Kelompok</h2>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Barang</th>
+                        <th>Jumlah</th>
+                        <th>Kondisi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>Freezer</td><td>2 Unit</td><td><span class="badge">Baik</span></td></tr>
+                    <tr><td>2</td><td>Vacuum Sealer</td><td>1 Unit</td><td><span class="badge">Baik</span></td></tr>
+                    <tr><td>3</td><td>Timbangan Digital</td><td>2 Unit</td><td><span class="badge">Baik</span></td></tr>
+                    <tr><td>4</td><td>Kompor Gas</td><td>1 Unit</td><td><span class="badge">Baik</span></td></tr>
+                    <tr><td>5</td><td>Tabung Gas</td><td>2 Unit</td><td><span class="badge">Baik</span></td></tr>
+                    <tr><td>6</td><td>Wajan Penggorengan</td><td>2 Unit</td><td><span class="badge">Baik</span></td></tr>
+                    <tr><td>7</td><td>Pisau Fillet</td><td>3 Unit</td><td><span class="badge">Baik</span></td></tr>
+                    <tr><td>8</td><td>Meja Pengolahan</td><td>1 Unit</td><td><span class="badge">Baik</span></td></tr>
+                    <tr><td>9</td><td>Cool Box</td><td>2 Unit</td><td><span class="badge">Baik</span></td></tr>
+                    <tr><td>10</td><td>Rak Penyimpanan</td><td>1 Unit</td><td><span class="badge">Baik</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<script>
+function kembaliKeAsal() {
+    if (document.referrer) { window.location.href = document.referrer; } 
+    else if (history.length > 1) { history.back(); } 
+    else { alert("Tidak ada halaman sebelumnya."); window.close(); }
 }
-
-.data-card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,.05);
-    border-top: 4px solid #2952cc;
-}
-
-.data-card h3 {
-    margin-bottom: 15px;
-    color: #333;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.data-card h3 i {
-    color: #2952cc;
-    font-size: 24px;
-}
-
-.btn-group {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 10px 15px;
-    background: #f0f4ff;
-    color: #2952cc;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 500;
-    transition: 0.3s;
-    border: 1px solid #d6e0ff;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.btn:hover {
-    background: #2952cc;
-    color: white;
-}
-
-.btn-excel { background: #e6f4ea;
-            
+</script>
+</body>
+</html>
