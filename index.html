@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inventaris Barang Kelompok - POKLAHSAR</title>
+<title>Inventaris & Integrasi Data - POKLAHSAR</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
@@ -69,6 +69,25 @@ body {
     box-shadow: 0 2px 10px rgba(0,0,0,.08);
 }
 .topbar h2 { color: #2952cc; font-size: 20px; }
+
+/* Tambahan Tombol Kembali Bergaya Sesuai Tema */
+.btn-back {
+    background: #6c757d;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+.btn-back:hover {
+    background: #5a6268;
+}
 
 /* ================= CONTENT ================= */
 .content { padding: 25px; }
@@ -138,159 +157,5 @@ body {
     color: white;
 }
 
-.btn-excel { background: #e6f4ea; color: #137333; border-color: #ceead6; }
-.btn-excel:hover { background: #137333; color: white; }
-
-.btn-looker { background: #fef7e0; color: #b06000; border-color: #feefc3; }
-.btn-looker:hover { background: #b06000; color: white; }
-
-/* ================= LIVE DASHBOARD INTEGRATION ================= */
-.dashboard-container {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,.05);
-    margin-bottom: 30px;
-}
-
-.tab-menu {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 15px;
-}
-
-.tab-btn {
-    padding: 10px 20px;
-    border: none;
-    background: #f0f4ff;
-    color: #2952cc;
-    font-weight: 600;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.tab-btn.active, .tab-btn:hover {
-    background: #2952cc;
-    color: white;
-}
-
-.tab-btn-excel {
-    background: #e6f4ea;
-    color: #137333;
-}
-.tab-btn-excel.active, .tab-btn-excel:hover {
-    background: #137333;
-    color: white;
-}
-
-.iframe-wrapper {
-    position: relative;
-    width: 100%;
-    height: 600px;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.iframe-wrapper iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-/* ================= TABLE INVENTARIS ================= */
-.table-container {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,.05);
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-}
-
-table th, table td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #eee;
-}
-
-table th {
-    background: #f8f9fa;
-    color: #333;
-    font-weight: 600;
-}
-
-table tbody tr:hover {
-    background: #f4f7fc;
-}
-
-.badge {
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.badge-baik { background: #e6f4ea; color: #137333; }
-.badge-rusak { background: #fff0f1; color: #d93025; }
-.badge-perbaikan { background: #fef7e0; color: #b06000; }
-
-/* ================= RESPONSIVE ================= */
-@media(max-width: 768px) {
-    .sidebar { width: 100%; height: auto; position: relative; }
-    .main { margin-left: 0; width: 100%; }
-    body { flex-direction: column; }
-    .iframe-wrapper { height: 450px; }
-}
-</style>
-</head>
-
-<body>
-
-<div class="sidebar">
-    <div class="logo">
-        <h2>POKLAHSAR</h2>
-        <p>Sistem Informasi Kelompok Pengolah dan Pemasar Hasil Perikanan</p>
-    </div>
-    <div class="menu">
-        <ul>
-            <li><a href="index.html"><i class="fas fa-home"></i> Kembali ke Dashboard</a></li>
-            <li><a href="#" class="active"><i class="fas fa-boxes"></i> Inventaris Barang & Aset</a></li>
-        </ul>
-    </div>
-</div>
-
-<div class="main">
-    <div class="topbar">
-        <h2>Inventaris Barang & Aset Kelompok POKLAHSAR</h2>
-        <div>
-            <i class="fas fa-user-circle"></i> Logistik / Administrator
-        </div>
-    </div>
-
-    <div class="content">
-        
-        <h2 class="section-title"><i class="fas fa-link"></i> Integrasi Data Pencatatan & Log</h2>
-        
-        <div class="grid-container">
+.btn-excel { background: #e6f4ea;
             
-            <div class="data-card">
-                <h3><i class="fas fa-plus-circle"></i> Pendataan Barang Baru</h3>
-                <p style="margin-bottom: 15px; font-size: 14px; color: #666;">Formulir digital untuk mencatat pengadaan, mutasi, atau penerimaan bantuan aset baru.</p>
-                <div class="btn-group">
-                    <a href="#" target="_blank" class="btn"><i class="fab fa-google"></i> Buka Google Form Pendataan</a>
-                    <a href="#" target="_blank" class="btn btn-excel"><i class="fas fa-table"></i> Lihat Master Data Spreadsheet</a>
-                </div>
-            </div>
