@@ -103,7 +103,7 @@ body {
 /* ================= CARDS / LINKS ================= */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 20px;
     margin-bottom: 30px;
 }
@@ -114,6 +114,8 @@ body {
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,.05);
     border-top: 4px solid #2952cc;
+    display: flex;
+    flex-direction: column;
 }
 
 .data-card h3 {
@@ -134,6 +136,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-bottom: 15px;
 }
 
 .btn {
@@ -161,6 +164,16 @@ body {
 
 .btn-looker { background: #fef7e0; color: #b06000; border-color: #feefc3; }
 .btn-looker:hover { background: #b06000; color: white; }
+
+/* ================= LOOKER EMBED ================= */
+.dashboard-embed {
+    width: 100%;
+    height: 350px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 10px;
+    background: #fafafa;
+}
 
 /* ================= TABLE INVENTARIS ================= */
 .table-container {
@@ -251,6 +264,7 @@ table tbody tr:hover {
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSfWt8IzkXYqdrVEJFHJZkWP8tG1kLrlXOnwhVqUi9af02QESg/viewform?usp=header" target="_blank" class="btn"><i class="fab fa-google"></i> Buka Google Form Pendaftaran</a>
                     <a href="https://docs.google.com/spreadsheets/d/12o4gPnjdU7cYV3zDr0ou8nElTdGNU3SjFkqRjrqIPSQ/edit?usp=sharing" target="_blank" class="btn btn-excel"><i class="fas fa-table"></i> Buka Spreadsheet Data Pendaftaran</a>
                 </div>
+                <iframe class="dashboard-embed" src="https://lookerstudio.google.com/embed/reporting/62cb2867-a349-40f5-a83b-42383865bf1d/page/1M" allowfullscreen></iframe>
             </div>
 
             <div class="data-card">
@@ -260,14 +274,15 @@ table tbody tr:hover {
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSfcU1zAS3bDvbLlzkXFQ9D9_Fn0-Qz9hulklYZNTTIVbETo_Q/viewform?usp=header" target="_blank" class="btn"><i class="fab fa-google"></i> Isi Survei Form Kepuasan</a>
                     <a href="https://docs.google.com/spreadsheets/d/1SXEjFN5TxASeD5mK9HdqEr1-ZXfuqK0HWGp3r_uKSC0/edit?usp=sharing" target="_blank" class="btn btn-excel"><i class="fas fa-table"></i> Lihat Data Kepuasan Spreadsheet</a>
                 </div>
+                <iframe class="dashboard-embed" src="https://lookerstudio.google.com/embed/reporting/8823ca8c-eaed-4e7f-a668-40db8e12e08a/page/1M" allowfullscreen></iframe>
             </div>
 
             <div class="data-card">
-                <h3><i class="fas fa-chart-pie"></i> Dashboard & Hasil Analisis</h3>
-                <p style="margin-bottom: 15px; font-size: 14px; color: #666;">Akses visualisasi data melalui Looker Studio serta download laporan analisis formal format Excel.</p>
+                <h3><i class="fas fa-chart-pie"></i> Unduh Hasil Analisis</h3>
+                <p style="margin-bottom: 15px; font-size: 14px; color: #666;">Akses data eksternal penuh atau download laporan dokumen hasil analisis formal dalam format Microsoft Excel.</p>
                 <div class="btn-group">
-                    <a href="https://datastudio.google.com/reporting/62cb2867-a349-40f5-a83b-42383865bf1d" target="_blank" class="btn btn-looker"><i class="fas fa-chart-line"></i> Looker Studio: Data Inventaris</a>
-                    <a href="https://datastudio.google.com/reporting/8823ca8c-eaed-4e7f-a668-40db8e12e08a" target="_blank" class="btn btn-looker"><i class="fas fa-chart-line"></i> Looker Studio: Data Kepuasan</a>
+                    <a href="https://datastudio.google.com/reporting/62cb2867-a349-40f5-a83b-42383865bf1d" target="_blank" class="btn btn-looker"><i class="fas fa-external-link-alt"></i> Buka Looker Studio Pendaftaran</a>
+                    <a href="https://datastudio.google.com/reporting/8823ca8c-eaed-4e7f-a668-40db8e12e08a" target="_blank" class="btn btn-looker"><i class="fas fa-external-link-alt"></i> Buka Looker Studio Kepuasan</a>
                     <a href="https://docs.google.com/spreadsheets/d/1MJtez_2hyEgFSUgoOuXE2iuheNd5MTnP/edit?usp=sharing&ouid=100706459363140641614&rtpof=true&sd=true" target="_blank" class="btn btn-excel"><i class="fas fa-file-excel"></i> Download Hasil Analisis Excel</a>
                 </div>
             </div>
