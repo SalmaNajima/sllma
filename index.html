@@ -118,14 +118,6 @@ body {
     flex-direction: column;
 }
 
-/* Style Khusus Kartu Website Kelompok (Warna Hijau Menonjol) */
-.data-card.web-card {
-    border-top: 4px solid #28a745;
-}
-.data-card.web-card h3 i {
-    color: #28a745;
-}
-
 .data-card h3 {
     margin-bottom: 15px;
     color: #333;
@@ -160,6 +152,7 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
+    cursor: pointer;
 }
 
 .btn:hover {
@@ -172,19 +165,6 @@ body {
 
 .btn-looker { background: #fef7e0; color: #b06000; border-color: #feefc3; }
 .btn-looker:hover { background: #b06000; color: white; }
-
-/* Style Tombol Utama Website Kelompok */
-.btn-web {
-    background: #e6f4ea;
-    color: #137333;
-    border-color: #ceead6;
-    font-weight: 600;
-}
-.btn-web:hover {
-    background: #28a745;
-    color: white;
-    border-color: #28a745;
-}
 
 /* ================= LOOKER EMBED ================= */
 .dashboard-embed {
@@ -304,7 +284,7 @@ table tbody tr:hover {
                 <div class="btn-group">
                     <a href="https://datastudio.google.com/reporting/62cb2867-a349-40f5-a83b-42383865bf1d" target="_blank" class="btn btn-looker"><i class="fas fa-external-link-alt"></i> Buka Looker Studio Pendaftaran</a>
                     <a href="https://datastudio.google.com/reporting/8823ca8c-eaed-4e7f-a668-40db8e12e08a" target="_blank" class="btn btn-looker"><i class="fas fa-external-link-alt"></i> Buka Looker Studio Kepuasan</a>
-                    <a href="Hasil_Analisis_POKLAHSAR.xlsx" download="Hasil_Analisis_POKLAHSAR.xlsx" class="btn btn-excel"><i class="fas fa-file-excel"></i> Download Hasil Analisis Excel</a>
+                    <button onclick="unduhExcelNative()" class="btn btn-excel"><i class="fas fa-file-excel"></i> Download Hasil Analisis Excel</button>
                 </div>
             </div>
 
@@ -313,7 +293,7 @@ table tbody tr:hover {
         <h2 class="section-title"><i class="fas fa-boxes"></i> Daftar Inventaris Kelompok</h2>
 
         <div class="table-container">
-            <table>
+            <table id="tabel-inventaris">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -323,16 +303,16 @@ table tbody tr:hover {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>1</td><td>Freezer</td><td>2 Unit</td><td><span class="badge">Baik</span></td></tr>
-                    <tr><td>2</td><td>Vacuum Sealer</td><td>1 Unit</td><td><span class="badge">Baik</span></td></tr>
-                    <tr><td>3</td><td>Timbangan Digital</td><td>2 Unit</td><td><span class="badge">Baik</span></td></tr>
-                    <tr><td>4</td><td>Kompor Gas</td><td>1 Unit</td><td><span class="badge">Baik</span></td></tr>
-                    <tr><td>5</td><td>Tabung Gas</td><td>2 Unit</td><td><span class="badge">Baik</span></td></tr>
-                    <tr><td>6</td><td>Wajan Penggorengan</td><td>2 Unit</td><td><span class="badge">Baik</span></td></tr>
-                    <tr><td>7</td><td>Pisau Fillet</td><td>3 Unit</td><td><span class="badge">Baik</span></td></tr>
-                    <tr><td>8</td><td>Meja Pengolahan</td><td>1 Unit</td><td><span class="badge">Baik</span></td></tr>
-                    <tr><td>9</td><td>cool box</td><td>2 Unit</td><td><span class="badge">Baik</span></td></tr>
-                    <tr><td>10</td><td>Rak Penyimpanan</td><td>1 Unit</td><td><span class="badge">Baik</span></td></tr>
+                    <tr><td>1</td><td>Freezer</td><td>2 Unit</td><td>Baik</td></tr>
+                    <tr><td>2</td><td>Vacuum Sealer</td><td>1 Unit</td><td>Baik</td></tr>
+                    <tr><td>3</td><td>Timbangan Digital</td><td>2 Unit</td><td>Baik</td></tr>
+                    <tr><td>4</td><td>Kompor Gas</td><td>1 Unit</td><td>Baik</td></tr>
+                    <tr><td>5</td><td>Tabung Gas</td><td>2 Unit</td><td>Baik</td></tr>
+                    <tr><td>6</td><td>Wajan Penggorengan</td><td>2 Unit</td><td>Baik</td></tr>
+                    <tr><td>7</td><td>Pisau Fillet</td><td>3 Unit</td><td>Baik</td></tr>
+                    <tr><td>8</td><td>Meja Pengolahan</td><td>1 Unit</td><td>Baik</td></tr>
+                    <tr><td>9</td><td>cool box</td><td>2 Unit</td><td>Baik</td></tr>
+                    <tr><td>10</td><td>Rak Penyimpanan</td><td>1 Unit</td><td>Baik</td></tr>
                 </tbody>
             </table>
         </div>
@@ -351,6 +331,40 @@ function kembaliKeAsal() {
     else {
         alert("Tidak ada halaman sebelumnya untuk kembali.");
         window.close();
+    }
+}
+
+// Fungsi unduh mandiri tanpa error, merubah data langsung menjadi file Excel (.xls) resmi yang kompatibel
+function unduhExcelNative() {
+    var namaFile = "Hasil_Analisis_POKLAHSAR.xls";
+    var tabel = document.getElementById("tabel-inventaris");
+    
+    // Menyusun struktur dokumen Excel XML dasar agar dibuka rapi di Microsoft Excel
+    var htmlData = tabel.outerHTML;
+    
+    // Set format dokumen Excel agar dibaca sebagai lembar kerja resmi
+    var metaData = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="UTF-8"><style>table {border-collapse:collapse;} th {background-color:#2952cc; color:white;} th, td {border:1px solid #ddd; padding:8px; text-align:left;}</style></head><body>';
+    var isiData = metaData + htmlData + "</body></html>";
+
+    // Konversi string ke format Blob biner di memori internal komputer
+    var blob = new Blob([isiData], {
+        type: "application/vnd.ms-excel;charset=utf-8;"
+    });
+
+    // Jalankan sistem download internal browser tanpa memanggil URL luar
+    if (navigator.msSaveBlob) { 
+        navigator.msSaveBlob(blob, namaFile);
+    } else {
+        var link = document.createElement("a");
+        if (link.download !== undefined) {
+            var url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", namaFile);
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
     }
 }
 </script>
