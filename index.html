@@ -53,6 +53,19 @@ body {
     background: rgba(255,255,255,.2);
 }
 
+/* Style Khusus Tombol Web Kelompok di Sidebar */
+.menu ul li a.btn-sidebar-web {
+    background: #ffc107;
+    color: #212529;
+    font-weight: 600;
+    margin-top: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.menu ul li a.btn-sidebar-web:hover {
+    background: #e0a800;
+    color: #212529;
+}
+
 /* ================= MAIN ================= */
 .main {
     margin-left: 280px;
@@ -70,6 +83,12 @@ body {
 }
 .topbar h2 { color: #2952cc; font-size: 20px; }
 
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .btn-back {
     background: #6c757d;
     color: white;
@@ -86,6 +105,26 @@ body {
 }
 .btn-back:hover {
     background: #5a6268;
+}
+
+/* Style Khusus Tombol Web Kelompok di Topbar */
+.btn-web-kelompok {
+    background: #28a745;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+.btn-web-kelompok:hover {
+    background: #218838;
 }
 
 /* ================= CONTENT ================= */
@@ -237,6 +276,7 @@ table tbody tr:hover {
         <ul>
             <li><a href="index.html"><i class="fas fa-home"></i> Kembali ke Dashboard</a></li>
             <li><a href="#" class="active"><i class="fas fa-boxes"></i> Inventaris & Data Kelompok</a></li>
+            <li><a href="#" class="btn-sidebar-web"><i class="fas fa-globe"></i> Website Kelompok 3 POKLAHSAR</a></li>
         </ul>
     </div>
 </div>
@@ -244,7 +284,10 @@ table tbody tr:hover {
 <div class="main">
     <div class="topbar">
         <h2>Inventaris Kelompok POKLAHSAR</h2>
-        <div>
+        <div class="topbar-actions">
+            <a href="#" class="btn-web-kelompok">
+                <i class="fas fa-globe"></i> Website Kelompok 3 POKLAHSAR
+            </a>
             <button onclick="kembaliKeAsal()" class="btn-back">
                 <i class="fas fa-arrow-left"></i> Kembali
             </button>
