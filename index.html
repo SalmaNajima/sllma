@@ -16,7 +16,6 @@ body {
     background: #f4f7fc;
     display: flex;
 }
-
 /* ================= SIDEBAR ================= */
 .sidebar {
     width: 280px;
@@ -47,13 +46,11 @@ body {
 .menu ul li a:hover, .menu ul li a.active {
     background: rgba(255,255,255,.2);
 }
-
 /* ================= MAIN ================= */
 .main {
     margin-left: 280px;
     width: calc(100% - 280px);
 }
-
 /* ================= TOPBAR ================= */
 .topbar {
     background: white;
@@ -64,7 +61,23 @@ body {
     box-shadow: 0 2px 10px rgba(0,0,0,.08);
 }
 .topbar h2 { color: #2952cc; font-size: 20px; }
-
+.btn-back {
+    background: #6c757d;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+.btn-back:hover {
+    background: #5a6268;
+}
 /* ================= CONTENT ================= */
 .content { padding: 25px; }
 .section-title {
@@ -75,8 +88,7 @@ body {
     padding-bottom: 10px;
     display: inline-block;
 }
-
-/* ================= CARDS ================= */
+/* ================= CARDS / LINKS ================= */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -92,8 +104,12 @@ body {
     display: flex;
     flex-direction: column;
 }
-.data-card.web-card { border-top: 4px solid #28a745; }
-
+.data-card.web-card {
+    border-top: 4px solid #28a745;
+}
+.data-card.web-card h3 i {
+    color: #28a745;
+}
 .data-card h3 {
     margin-bottom: 15px;
     color: #333;
@@ -102,51 +118,87 @@ body {
     align-items: center;
     gap: 10px;
 }
+.data-card h3 i {
+    color: #2952cc;
+    font-size: 24px;
+}
+.btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #f0f4ff;
+    color: #2952cc;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: 0.3s;
+    border: 1px solid #d6e0ff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.btn:hover {
+    background: #2952cc;
+    color: white;
+}
+.btn-excel { background: #e6f4ea; color: #137333; border-color: #ceead6; }
+.btn-excel:hover { background: #137333; color: white; }
+.btn-looker { background: #fef7e0; color: #b06000; border-color: #feefc3; }
+.btn-looker:hover { background: #b06000; color: white; }
+.btn-web {
+    background: #e6f4ea;
+    color: #137333;
+    border-color: #ceead6;
+    font-weight: 600;
+}
+.btn-web:hover {
+    background: #28a745;
+    color: white;
+    border-color: #28a745;
+}
 
-/* ================= DASHBOARD EMBED (LEBIH BESAR) ================= */
+/* ================= LOOKER EMBED - DIBUAT LEBIH BESAR ================= */
 .dashboard-embed {
     width: 100%;
-    height: 650px;           /* Tinggi yang lebih besar */
-    min-height: 550px;
+    height: 680px;           /* Ukuran lebih besar */
     border: 1px solid #ddd;
     border-radius: 8px;
     margin-top: 10px;
     background: #fafafa;
-    aspect-ratio: 16 / 9;    /* Membuat proporsi lebih baik */
 }
 
-/* Tombol Fullscreen */
-.btn-fullscreen {
-    align-self: flex-end;
-    margin-top: 8px;
-    padding: 8px 14px;
-    background: #2952cc;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-}
-.btn-fullscreen:hover {
-    background: #1e40af;
-}
-
-/* ================= TABLE ================= */
+/* ================= TABLE INVENTARIS ================= */
 .table-container {
     background: white;
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,.05);
 }
-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-table th, table td { padding: 12px 15px; text-align: left; }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+}
 table th {
     background: #2952cc;
     color: white;
     font-weight: 600;
 }
-table td { border: 1px solid #ddd; }
-table tbody tr:hover { background: #f4f7fc; }
+table td {
+    border: 1px solid #ddd;
+}
+table tbody tr:hover {
+    background: #f4f7fc;
+}
 .badge {
     padding: 5px 10px;
     border-radius: 20px;
@@ -160,7 +212,8 @@ table tbody tr:hover { background: #f4f7fc; }
 @media(max-width: 768px) {
     .sidebar { width: 100%; height: auto; position: relative; }
     .main { margin-left: 0; width: 100%; }
-    .dashboard-embed { height: 500px; }
+    body { flex-direction: column; }
+    .dashboard-embed { height: 520px; }
 }
 </style>
 </head>
@@ -177,7 +230,6 @@ table tbody tr:hover { background: #f4f7fc; }
         </ul>
     </div>
 </div>
-
 <div class="main">
     <div class="topbar">
         <h2>Inventaris Kelompok POKLAHSAR</h2>
@@ -187,49 +239,43 @@ table tbody tr:hover { background: #f4f7fc; }
             </button>
         </div>
     </div>
-
     <div class="content">
+       
         <h2 class="section-title"><i class="fas fa-link"></i> Integrasi Data Formulir & Laporan</h2>
        
         <div class="grid-container">
            
-            <!-- Card 1 -->
             <div class="data-card">
                 <h3><i class="fas fa-file-signature"></i> Form & Data Pendaftaran</h3>
-                <p style="margin-bottom: 15px; font-size: 14px; color: #666;">Silakan mengisi formulir pendaftaran atau cek rekapitulasi data hasil formulir.</p>
+                <p style="margin-bottom: 15px; font-size: 14px; color: #666;">Silakan mengisi formulir pendaftaran atau cek rekapitulasi data hasil formulir pada Google Spreadsheet.</p>
                 <div class="btn-group">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfWt8IzkXYqdrVEJFHJZkWP8tG1kLrlXOnwhVqUi9af02QESg/viewform?usp=header" target="_blank" class="btn"><i class="fab fa-google"></i> Buka Google Form</a>
-                    <a href="https://docs.google.com/spreadsheets/d/12o4gPnjdU7cYV3zDr0ou8nElTdGNU3SjFkqRjrqIPSQ/edit?usp=sharing" target="_blank" class="btn btn-excel"><i class="fas fa-table"></i> Buka Spreadsheet</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfWt8IzkXYqdrVEJFHJZkWP8tG1kLrlXOnwhVqUi9af02QESg/viewform?usp=header" target="_blank" class="btn"><i class="fab fa-google"></i> Buka Google Form Pendaftaran</a>
+                    <a href="https://docs.google.com/spreadsheets/d/12o4gPnjdU7cYV3zDr0ou8nElTdGNU3SjFkqRjrqIPSQ/edit?usp=sharing" target="_blank" class="btn btn-excel"><i class="fas fa-table"></i> Buka Spreadsheet Data Pendaftaran</a>
                 </div>
                 <iframe class="dashboard-embed" src="https://datastudio.google.com/embed/reporting/62cb2867-a349-40f5-a83b-42383865bf1d/page/page_12345" allowfullscreen></iframe>
-                <button class="btn-fullscreen" onclick="toggleFullscreen(this.previousElementSibling)">⛶ Full Screen</button>
             </div>
-
-            <!-- Card 2 -->
+            
             <div class="data-card">
                 <h3><i class="fas fa-star"></i> Form & Data Kepuasan</h3>
-                <p style="margin-bottom: 15px; font-size: 14px; color: #666;">Isi survei kepuasan dan lihat hasil rekap tanggapannya.</p>
+                <p style="margin-bottom: 15px; font-size: 14px; color: #666;">Isi survei kepuasan pengguna sistem inventaris kelompok dan lihat hasil rekap tanggapannya.</p>
                 <div class="btn-group">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfcU1zAS3bDvbLlzkXFQ9D9_Fn0-Qz9hulklYZNTTIVbETo_Q/viewform?usp=header" target="_blank" class="btn"><i class="fab fa-google"></i> Isi Survei Kepuasan</a>
-                    <a href="https://docs.google.com/spreadsheets/d/1SXEjFN5TxASeD5mK9HdqEr1-ZXfuqK0HWGp3r_uKSC0/edit?usp=sharing" target="_blank" class="btn btn-excel"><i class="fas fa-table"></i> Lihat Data Kepuasan</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfcU1zAS3bDvbLlzkXFQ9D9_Fn0-Qz9hulklYZNTTIVbETo_Q/viewform?usp=header" target="_blank" class="btn"><i class="fab fa-google"></i> Isi Survei Form Kepuasan</a>
+                    <a href="https://docs.google.com/spreadsheets/d/1SXEjFN5TxASeD5mK9HdqEr1-ZXfuqK0HWGp3r_uKSC0/edit?usp=sharing" target="_blank" class="btn btn-excel"><i class="fas fa-table"></i> Lihat Data Kepuasan Spreadsheet</a>
                 </div>
                 <iframe class="dashboard-embed" src="https://lookerstudio.google.com/embed/reporting/8823ca8c-eaed-4e7f-a668-40db8e12e08a/page/1M" allowfullscreen></iframe>
-                <button class="btn-fullscreen" onclick="toggleFullscreen(this.previousElementSibling)">⛶ Full Screen</button>
             </div>
-
-            <!-- Card 3 tetap sama -->
+            
             <div class="data-card">
                 <h3><i class="fas fa-chart-pie"></i> Hasil Analisis & Laporan</h3>
-                <p style="margin-bottom: 15px; font-size: 14px; color: #666;">Akses data eksternal dan download laporan analisis.</p>
+                <p style="margin-bottom: 15px; font-size: 14px; color: #666;">Akses data eksternal penuh atau download laporan dokumen hasil analisis formal dalam format Microsoft Excel.</p>
                 <div class="btn-group">
                     <a href="https://datastudio.google.com/reporting/62cb2867-a349-40f5-a83b-42383865bf1d" target="_blank" class="btn btn-looker"><i class="fas fa-external-link-alt"></i> Buka Looker Studio Pendaftaran</a>
                     <a href="https://datastudio.google.com/reporting/8823ca8c-eaed-4e7f-a668-40db8e12e08a" target="_blank" class="btn btn-looker"><i class="fas fa-external-link-alt"></i> Buka Looker Studio Kepuasan</a>
-                    <a href="https://docs.google.com/spreadsheets/d/1MJtez_2hyEgFSUgoOuXE2iuheNd5MTnP/export?format=xlsx" class="btn btn-excel"><i class="fas fa-file-excel"></i> Download Excel</a>
+                    <a href="https://docs.google.com/spreadsheets/d/1MJtez_2hyEgFSUgoOuXE2iuheNd5MTnP/export?format=xlsx" class="btn btn-excel"><i class="fas fa-file-excel"></i> Download Hasil Analisis Excel</a>
                 </div>
             </div>
         </div>
-
-        <!-- Tabel Inventaris tetap sama -->
+        
         <h2 class="section-title"><i class="fas fa-boxes"></i> Daftar Inventaris Kelompok</h2>
         <div class="table-container">
             <table>
@@ -257,22 +303,17 @@ table tbody tr:hover { background: #f4f7fc; }
         </div>
     </div>
 </div>
-
 <script>
 function kembaliKeAsal() {
-    if (document.referrer) window.location.href = document.referrer;
-    else if (history.length > 1) history.back();
-    else {
-        alert("Tidak ada halaman sebelumnya.");
-        window.close();
+    if (document.referrer) {
+        window.location.href = document.referrer;
     }
-}
-
-function toggleFullscreen(iframe) {
-    if (!document.fullscreenElement) {
-        iframe.requestFullscreen().catch(err => alert("Gagal masuk fullscreen"));
-    } else {
-        document.exitFullscreen();
+    else if (history.length > 1) {
+        history.back();
+    }
+    else {
+        alert("Tidak ada halaman sebelumnya untuk kembali.");
+        window.close();
     }
 }
 </script>
